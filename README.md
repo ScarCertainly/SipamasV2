@@ -1,66 +1,126 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# SIPAMAS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+SIPAMAS adalah aplikasi web pengaduan masyarakat berbasis Laravel yang digunakan untuk membantu masyarakat dalam membuat laporan, memantau status pengaduan, serta menerima tindak lanjut dari admin.
 
-## About Laravel
+## Akun Login Admin
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Gunakan akun berikut untuk login sebagai admin:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- Email: `redacted`
+- Password: `redacted`
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Halaman login:
+- `/login`
 
-## Learning Laravel
+## Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Login dan registrasi pengguna
+- Login admin
+- Login dengan Google
+- Login guest menggunakan nomor WhatsApp
+- CRUD pengaduan masyarakat
+- Upload bukti gambar
+- Input lokasi manual atau GPS
+- Dashboard admin
+- Tindak lanjut laporan oleh admin
+- Riwayat status pengaduan
+- Chat antara admin dan user
+- Notifikasi sistem
+- Export data CSV
+- Manajemen role user
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Teknologi yang Digunakan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Laravel 10
+- PHP 8.1 atau lebih baru
+- MySQL / MariaDB
+- Vite
+- Tailwind CSS
+- Laravel Socialite
 
-## Laravel Sponsors
+## Cara Install Project
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+1. Download atau extract project SIPAMAS.
+2. Buka terminal atau command prompt pada folder project.
+3. Install dependency backend:
 
-### Premium Partners
+```bash
+composer install
+Install dependency frontend:
+bash
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+npm install
+Copy file environment:
+bash
 
-## Contributing
+cp .env.example .env
+Jika menggunakan Windows dan perintah cp tidak tersedia, salin manual file .env.example menjadi .env.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Generate application key:
+bash
 
-## Code of Conduct
+php artisan key:generate
+Atur konfigurasi database pada file .env.
+Contoh:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+env
 
-## Security Vulnerabilities
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=sipamas
+DB_USERNAME=root
+DB_PASSWORD=
+Pastikan database sipamas sudah dibuat.
+Jalankan migration:
+bash
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+php artisan migrate
+Jalankan seeder:
+bash
 
-## License
+php artisan db:seed
+Jalankan frontend:
+Untuk mode development:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+bash
+
+npm run dev
+Untuk build production:
+
+bash
+
+npm run build
+Jalankan server Laravel:
+bash
+
+php artisan serve
+Buka aplikasi di browser:
+bash
+
+http://127.0.0.1:8000
+Cara Login
+Setelah aplikasi berjalan, masuk menggunakan akun admin berikut:
+
+Email: redacted
+Password: redacted
+Struktur Fitur Penting
+/login : halaman login
+/register : halaman registrasi
+/dashboard : dashboard utama
+/complaints : daftar pengaduan
+/complaints/create : tambah pengaduan
+/notifications : daftar notifikasi
+/admin/complaints : pengelolaan pengaduan admin
+/admin/users : manajemen user
+Catatan Penting
+File .env tidak disertakan demi keamanan.
+Folder vendor dan node_modules mungkin tidak ikut dalam paket ZIP, jadi harus di-install ulang.
+Jika login Google digunakan, isi konfigurasi berikut pada .env:
+GOOGLE_CLIENT_ID
+GOOGLE_CLIENT_SECRET
+GOOGLE_REDIRECT_URI
+Deploy
+Panduan deploy tersedia pada file berikut:
+
+docs/INFINITYFREE.md
